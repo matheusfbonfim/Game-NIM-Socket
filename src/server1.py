@@ -16,7 +16,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Configuração 
 
 ip = ''         # Não é atribuido, pois é usado o localhost (127.0.0.1)
-porta = 35000   # Numero da porta - Servidor responde nessa porta  
+porta = 5100    # Numero da porta - Servidor responde nessa porta  
                 # Port to listen on (non-privileged ports are > 1023)
 
 orig = (ip, porta)  # ip e porta do servidor em uma tupla
@@ -68,7 +68,7 @@ class Server():
       # [0] - Impar [1] - Par
       aleatorioImparPar = random.randint(0, 1)
 
-      print("\n========== START GAME ==========  \n\n")
+      print("\n======================= START GAME ===============================  \n\n")
 
       if (aleatorioImparPar == num): 
 
@@ -161,7 +161,7 @@ if initial_player == server.jogador1:
     
   server.numPecas = server.numPecas - retirada
 
-  print(f"Agora restam {server.numPecas} peças no tabuleiro.")
+  print(f"Numero de pecas: {server.numPecas}")
 
   tcp_dados.send(server.numPecas.to_bytes(16, 'big'))##
 
@@ -176,17 +176,12 @@ while ((server.numPecas > 0) or primeirojoga):
 
   numPecasRestantes = int.from_bytes(tcp_dados.recv(16), 'big') #recive
 
-  jogada_anterior_restantes = server.numPecas - numPecasRestantes
-
   if (numPecasRestantes == 0):
       server.theEnd(False)
 
   server.numPecas = numPecasRestantes
 
-  print(f"\nO player 2 tirou {jogada_anterior_restantes} peça(s).")
-  
-  print(f"\nAgora restam {server.numPecas} peças no tabuleiro.")
-
+  print(f"Numero de pecas - RECEIVED: {numPecasRestantes}")
 
   if (server.numPecas == 0):
       print("Fim do jogo")  
