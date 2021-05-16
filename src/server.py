@@ -1,3 +1,8 @@
+# ==================================================================
+# =========== Implementação de uma aplicação de rede ===============
+#     DUPLA: GABRIEL VINICIUS GREGUER - MATHEUS DE FARIAS BONFIM
+# ==================================================================
+
 import socket 
 # Módulo implementa protocolos binários para serializar e desserializar uma estrutura de objeto Python
 import pickle
@@ -15,7 +20,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Configuração 
 
 ip = ''         # Não é atribuido, pois é usado o localhost (127.0.0.1)
-porta = 5200    # Numero da porta - Servidor responde nessa porta  
+porta = 5300    # Numero da porta - Servidor responde nessa porta  
                 # Port to listen on (non-privileged ports are > 1023)
 
 orig = (ip, porta)  # ip e porta do servidor em uma tupla
@@ -131,7 +136,6 @@ server.definindoParametros()
 ## LIST WITH GAME PARAMETERS
   # Lista com numPecas e limite peca - Montar pacote de saída 
 msg1 = [int(server.numPecas), int(server.limitePecas)]
-
 
 ## SEND - PLAYER 2 - PARAMETERS
   # Envia para o 2 jogador os parametros de jogo

@@ -1,3 +1,8 @@
+# ==================================================================
+# =========== Implementação de uma aplicação de rede ===============
+#     DUPLA: GABRIEL VINICIUS GREGUER - MATHEUS DE FARIAS BONFIM
+# ==================================================================
+
 """
 No TCP é necessário pedir conexão ao servidor
 """
@@ -11,7 +16,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 ip_serv = '127.0.0.1' # Endereço IP do servidor - localhost
 
-porta_serv = 5200 # Porta do servidor
+porta_serv = 5300 # Porta do servidor
 
 dest = (ip_serv, porta_serv) # IP e porta do servidor em um tupla
 
@@ -91,7 +96,7 @@ def theEnd(ganhador):
 
 ## RECEIVING GAME PARAMETERS 
     # Parametros do jogo
-numPecas, limitePecas = pickle.loads(tcp.recv(2048))
+numPecas, limitePecas = pickle.loads(tcp.recv(24))
 
 
 ## INFORMATION GAME
