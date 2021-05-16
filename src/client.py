@@ -1,7 +1,6 @@
 """
 No TCP é necessário pedir conexão ao servidor
 """
-import time
 import socket
 import pickle
 
@@ -12,7 +11,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 ip_serv = '127.0.0.1' # Endereço IP do servidor - localhost
 
-porta_serv = 35000 # Porta do servidor
+porta_serv = 5200 # Porta do servidor
 
 dest = (ip_serv, porta_serv) # IP e porta do servidor em um tupla
 
@@ -25,9 +24,9 @@ tcp.connect(dest) # Manda um SYN para conectar com o servidor
 # FUNÇÕES
 
 def imprimiParametros(n, m):
-    print("\n====================================================================",end='\n')
-    print("\n========== BEM-VINDO AO JOGO DO NIM! - JOGADOR 2 =================== ",end='\n')
-    print("\n====================================================================",end='\n\n')
+    print("\n=============================================================",end='\n')
+    print("\n===== ♠  BEM-VINDO AO JOGO DO NIM! - CLIENT/JOGADOR 2 ♠ ===== ",end='\n')
+    print("\n=============================================================",end='\n\n')
 
     print("A partida está configurada com os seguintes parâmetros:", end='\n\n')
     
@@ -41,24 +40,24 @@ def decisionOddOrEven():
     print("\t [0] - Ímpar\n")
     print("\t [1] - PAR\n\n")
 
-    decision = int(input("Digite a opção [0 ou 1]: "))
+    decision = int(input("➔ Digite a opção [0 ou 1]: "))
 
     # Verifica se foi escrito uma opção válida
     while (decision != 0) & (decision != 1):
         print("\n !!! A opção escolhida é inválida !!!\n")
         print("\t [0] - Ímpar\n")
         print("\t [1] - PAR\n")
-        decision = int(input("Digite novamente [0 ou 1]: "))
+        decision = int(input("➔ Digite novamente [0 ou 1]: "))
 
     return decision
 
 def infoPlayerStartGame(player):
-    print("\n========== START GAME ==========  \n\n")
+    print("\n\n========== START GAME ==========\n")
 
     if (player == 'player2'):
-        print("O jogador 2 (client) ganhou o ímpar ou par e iniciará o jogo\n")
+        print("O jogador 2 (client) ganhou o ímpar ou par e iniciará o jogo")
     else:
-        print("O jogador 1 (server) ganhou o ímpar ou par e iniciará o jogo\n")
+        print("O jogador 1 (server) ganhou o ímpar ou par e iniciará o jogo")
 
 
 def usuario_escolhe_jogada():
@@ -67,23 +66,26 @@ def usuario_escolhe_jogada():
       - Verifica a validade dos parâmetros
       - Retorna o valor de peças retiradas
       """
-      numero = int(input('\nQuantas peças você vai tirar? '))
+      numero = int(input('\n\n➔ Quantas peças você vai tirar? '))
 
       while numero > numPecas or numero > limitePecas or numero <= 0:
           print("\nOops! Jogada inválida! Tente de novo.")
-          numero = int(input("\nQuantas peças você vai tirar? "))
+          numero = int(input("\n➔ Quantas peças você vai tirar? "))
 
       return numero
 
 def theEnd(ganhador):
       if (ganhador):
-        print("VOCÊ GANHOU!!")
-      else: 
-        print("VOCÊ PERDEU")
+        print("\n\n================================\n")
+        print("🏆🏆🏆 VOCÊ GANHOU!!🏆🏆🏆")
+        print("\n================================\n")
+      else:
+        print("\n\n================================\n") 
+        print("❌❌❌ VOCÊ PERDEU! ❌❌❌")
+        print("\n================================\n")
 
 
 # ==========================================================
-    #print(f"Tipo: {type(odd_or_even)} / Valor: {odd_or_even}")
 
 # ÍNICIO
 
@@ -116,17 +118,19 @@ infoPlayerStartGame(initial_player)
 
 # =========================================================================
 
+# GAME
+
 firstTime = None
 
 if initial_player == 'player2':
 
     retirada = usuario_escolhe_jogada()
 
-    print(f"\nVocê tirou {retirada} peça(s).")
+    print(f"\n\tVocê tirou {retirada} peça(s).")
     
     numPecas = numPecas - retirada
 
-    print(f"Agora restam {numPecas} peças no tabuleiro.")
+    print(f"\n\tAgora restam {numPecas} peças no tabuleiro.")
 
     tcp.send(numPecas.to_bytes(16, 'big'))
    
@@ -146,29 +150,31 @@ while ((numPecas > 0) or firstTime):
     if (numPecas == 0):
         theEnd(False)
         break
-
-    print(f"\nO player 1 tirou {jogada_anterior_restantes} peça(s).")
-    print(f"\nAgora restam {numPecas} peças no tabuleiro.")
+    
+    print("\n================================\n")
+    print(f"\n\tO player 1 tirou {jogada_anterior_restantes} peça(s).")
+    print(f"\n\tAgora restam {numPecas} peças no tabuleiro.")
     
 
     if (numPecas == 0):
-    
-        print("Fim do jogo")
+        theEnd(False)
+        break
     
     retirada = usuario_escolhe_jogada()
 
-    print(f"\nVocê tirou {retirada} peça(s).")
+    print(f"\n\tVocê tirou {retirada} peça(s).")
     
     numPecas = numPecas - retirada
 
     if (numPecas == 0):
         theEnd(True)
+        break
 
-    print(f"Numero de pecas: {numPecas}")
+    print(f"\n\tAgora restam {numPecas} peças no tabuleiro.")
 
     tcp.send(numPecas.to_bytes(16, 'big'))
     
-      
+# =========================================================================    
 
 
 tcp.close()
