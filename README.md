@@ -1,20 +1,69 @@
-# Jogo do NIM 
+## 💻 Sobre o projeto
+
+- Projeto desenvolvido na matéria de Redes de Computadores I, durante o curso de Engenharia da Computação - **[@UTFPR](http://www.utfpr.edu.br/)**.
+
+- Consiste na implementação de uma aplicação de rede utilizando sockets, focando nos tipos e ordem de mensagens e no comportamento de clientes e servidor no processo.
+
+- Desenvolvimento de um jogo simples de dois usuários, utilizando sockets TCP, dado pelas ferramentas de confiabilidade e ordenação de segmentos.
+
+- Implementação de um cliente e servidor, levando em conta como dois usuários jogando (um dos jogadores atuando como servidor).
+
+## 🎮 Definição: Jogo do NIM 
 
 Você conhece o jogo do NIM? Nesse jogo, n peças são inicialmente dispostas numa mesa ou tabuleiro. Dois jogadores jogam alternadamente, retirando pelo menos 1 e no máximo m peças cada um. Quem tirar as últimas peças possíveis ganha o jogo.
 
 Existe uma estratégia para ganhar o jogo que é muito simples: ela consiste em deixar sempre múltiplos de (m+1) peças ao jogador oponente.
 
-# Objetivo
+### Objetivo
 
-Tal implementação tem por finalidade escrever um programa na linguagem Python, que permita a uma "vítima" jogar o NIM contra o computador. O computador, é claro, deverá seguir a estratégia vencedora descrita acima.
+Tal implementação tem por finalidade escrever um programa na linguagem Python, que permita um jogador 1 (client) jogar o NIM contra o server (jogar).
 
-Sejam n o número de peças inicial e m o número máximo de peças que é possível retirar em uma rodada. Para garantir que o computador ganhe sempre, é preciso considerar os dois cenários possíveis para o início do jogo:
+Sejam n o número de peças inicial e m o número máximo de peças que é possível retirar em uma rodada.
 
-- Se n é múltiplo de (m+1), o computador deve ser "generoso" e convidar o jogador a iniciar a partida com a frase "Você começa!"
-- Caso contrário, o computador toma a inciativa de começar o jogo, declarando "Computador começa!"
+### :rocket: Tecnologias
 
-Uma vez iniciado o jogo, a estratégia do computador para ganhar consiste em deixar sempre um número de peças que seja múltiplo de (m+1) ao jogador. Caso isso não seja possível, deverá tirar o número máximo de peças possíveis.
+This project was developed with the following technologies:
 
-A implementação reproduz o jogo e fazendo com que o computador se utilize da estratégia vencedora.
+- [Python]()
+- [Socket](https://docs.python.org/3/library/socket.html)
 
-# Referência
+## 🔁 Fluxo de mensagens entre cliente e servidor
+
+
+<h1 align="center">
+    <img alt="Happy" title="Happy" src=".github/Home.svg" />
+</h1>
+
+
+
+## 🚀 Como executar o projeto
+
+   ```
+   - Clone this repository:
+   $ git clone https://github.com/matheusfbonfim/game_NIM_socket
+
+   - Enter in directory:
+   $ cd game_NIM_socket/src
+
+   - First, in a terminal run the server:
+   $ python3 server.py
+
+   - In another terminal run the client:
+   $ python3 client.py
+   ```
+
+## Referência
+
+- Introdução à Ciência da Computação com Python Parte 1 - Universidade de São Paulo (USP)
+- Redes de Computadores I - UTFPR
+
+## :memo: License
+
+O projeto está sobre a licença [MIT](./LICENSE) ❤️ 
+
+Gostou? Deixe uma estrelinha para ajudar ⭐
+
+<!-- Mensagem final -->
+<h3 align="center">
+Feito com ❤️ por <a href="https://www.linkedin.com/in/matheus-de-farias-bonfim-448667169/">Matheus Bonfim</a>
+</h3>
