@@ -24,7 +24,7 @@ Existe uma estratégia para ganhar o jogo que é muito simples: ela consiste em 
 
 ### 💡 Objetivo
 
-Tal implementação tem por finalidade escrever um programa na linguagem Python, que permita um jogador 1 (client) jogar o NIM contra o server (jogar).
+Tal implementação tem por finalidade escrever um programa na linguagem Python, que permita um jogador 1 (client) jogar o NIM contra outro jogador 2 (server), considerando uma implementação em rede.
 
 Sejam n o número de peças inicial e m o número máximo de peças que é possível retirar em uma rodada.
 
