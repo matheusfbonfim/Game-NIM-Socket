@@ -1,3 +1,11 @@
+<h1 align="center">
+  <img alt="socket" src=".github/socket.jpg" width="35%"/>
+</h1>
+
+<h2 align="center">
+  🔌 Game Nim - Aplicação em rede - Socket Python 🎮  
+</h2>
+
 ## 💻 Sobre o projeto
 
 - Projeto desenvolvido na matéria de Redes de Computadores I, durante o curso de Engenharia da Computação - **[@UTFPR](http://www.utfpr.edu.br/)**.
@@ -14,7 +22,7 @@ Você conhece o jogo do NIM? Nesse jogo, n peças são inicialmente dispostas nu
 
 Existe uma estratégia para ganhar o jogo que é muito simples: ela consiste em deixar sempre múltiplos de (m+1) peças ao jogador oponente.
 
-### Objetivo
+### 💡 Objetivo
 
 Tal implementação tem por finalidade escrever um programa na linguagem Python, que permita um jogador 1 (client) jogar o NIM contra o server (jogar).
 
@@ -29,10 +37,9 @@ This project was developed with the following technologies:
 
 ## 🔁 Fluxo de mensagens entre cliente e servidor
 
+Você pode visualizar o fluxo de mensagens entre cliente e servidor através do link abaixo:
 
-<h1 align="center">
-    <img alt="messages_flow_client_server" title="Happy" src=".github/assets/message_flow_client_server.pdf" />
-</h1>
+- [Fluxo de mensagens](.github/message_flow_client_server.pdf)
 
 
 ## 🚀 Como executar o projeto
