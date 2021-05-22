@@ -2,9 +2,9 @@
   <img alt="socket" src=".github/socket.jpg" width="35%"/>
 </h1>
 
-<h2 align="center">
+<h1 align="center">
   🔌 Game Nim - Aplicação em rede - Socket Python 🎮  
-</h2>
+</h1>
 
 ## 💻 Sobre o projeto
 
