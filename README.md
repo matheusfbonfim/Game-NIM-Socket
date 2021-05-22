@@ -31,9 +31,8 @@ This project was developed with the following technologies:
 
 
 <h1 align="center">
-    <img alt="Happy" title="Happy" src=".github/Home.svg" />
+    <img alt="messages_flow_client_server" title="Happy" src=".github/assets/message_flow_client_server.pdf" />
 </h1>
-
 
 
 ## 🚀 Como executar o projeto
